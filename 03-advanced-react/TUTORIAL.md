@@ -1602,7 +1602,7 @@ import Starter from './tutorial/06-forms/starter/01-controlled-inputs.jsx';
 - setup state values
 - add value and onChange to each input
 - setup onSubmit
-
+  
 ```js
 import { useState } from 'react';
 const ControlledInputs = () => {

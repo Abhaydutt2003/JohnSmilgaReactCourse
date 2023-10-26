@@ -1,9 +1,9 @@
-import {Home,About} from './tutorial/04-project-structure/starter/pages/index';
+import Starter from './tutorial/06-forms/starter/02-user-challenge'; 
+
 function App() {
   return (
     <div className='container'>
-      <Home></Home>
-      <About></About>
+      <Starter></Starter>
     </div>
   );
 }
