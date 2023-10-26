@@ -549,7 +549,7 @@ Setup Challenge :
   - you can use .then or async
   - set users equal to result
   - iterate over the list and display image, user name and link
-- DON'T WORRY ABOUT CSS, MOST IMPORTANT LOGIC !!!
+- DCON'T WORRY ABOUT CSS, MOST IMPORTANT LOGI !!!
 
 ```js
 import { useState, useEffect } from 'react';
