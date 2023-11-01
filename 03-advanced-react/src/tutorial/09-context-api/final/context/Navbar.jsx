@@ -18,7 +18,7 @@ const Navbar = () => {
     setUser(null);
   };
   return (
-    <NavbarContext.Provider value={{ user, logout }}>
+    <NavbarContext.Provider value={{ user:user, logout:logout }}>
       <nav className='navbar'>
         <h5>CONTEXT API</h5>
         <NavLinks />
