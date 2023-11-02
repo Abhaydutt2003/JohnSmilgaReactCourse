@@ -1,4 +1,4 @@
-import Starter from './tutorial/09-context-api/starter/context/Navbar'; 
+import Starter from './tutorial/11-performance/starter/02-lower-state-challenge/index'; 
 
 function App() {
   return (

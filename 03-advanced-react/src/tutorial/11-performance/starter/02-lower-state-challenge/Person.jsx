@@ -1,3 +1,5 @@
+//import {memo} from 'react';
+
 const Person = ({ name }) => {
   return (
     <div>
