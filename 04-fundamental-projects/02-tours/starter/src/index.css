@@ -252,7 +252,7 @@ ul {
 }
 /* ============= PROJECT CSS =============== */
 
-main {
+/* main {
   width: 90vw;
   max-width: var(--max-width);
   margin: 5rem auto;
@@ -338,4 +338,4 @@ main {
   .tours {
     grid-template-columns: 1fr 1fr 1fr;
   }
-}
+} */
