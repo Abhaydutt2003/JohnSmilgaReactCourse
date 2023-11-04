@@ -1,0 +1,21 @@
+*{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+body{
+    position: relative;
+}
+.cont{
+    background-color: white;
+    position: absolute;
+    width: 40%;
+    left: 30%;
+    top: auto;
+}
+
+.imgCont{
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    border-radius: 50%;
+}
