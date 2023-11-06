@@ -1,8 +1,8 @@
 import Carousel from "./Carousel";
-
+import SlickCarousel from "./SlickCarousel";
 const App = () => {
   return (
-    <Carousel></Carousel>
+    <SlickCarousel></SlickCarousel>
   );
 };
 export default App;
