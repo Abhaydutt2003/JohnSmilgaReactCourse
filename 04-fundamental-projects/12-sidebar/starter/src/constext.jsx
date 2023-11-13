@@ -7,10 +7,10 @@ export const AppProvider = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openSideBar = () => {
-    setIsSideBarOpen(false);
+    setIsSideBarOpen(true);
   };
   const closeSideBar = () => {
-    setIsSideBarOpen(true);
+    setIsSideBarOpen(false);
   };
   const openModal = () => {
     setIsModalOpen(true);
@@ -18,7 +18,6 @@ export const AppProvider = ({ children }) => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-
   return (
     <AppContext.Provider
       value={{
