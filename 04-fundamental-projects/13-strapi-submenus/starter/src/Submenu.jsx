@@ -25,6 +25,7 @@ export default function Submenu() {
       setPageId(null);
     }
   };
+  //turns out no need to use the function above
 
   return (
     <div
