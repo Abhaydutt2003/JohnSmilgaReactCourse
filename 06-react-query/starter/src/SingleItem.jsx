@@ -1,10 +1,16 @@
+import { useDeleteTask,useEditTask } from "../reactQeryCustomHook";
+
+//import { useDeleteTask, useEditTask } from './reactQeryCustomHooks';
 const SingleItem = ({ item }) => {
+  console.log('render');
+  const { editTask } = useEditTask();
+  const { deleteTask, deleteTaskLoading } = useDeleteTask();
   return (
     <div className='single-item'>
       <input
         type='checkbox'
         checked={item.isDone}
-        onChange={() => console.log('edit task')}
+        onChange={() => editTask({ taskId: item.id, isDone: !item.isDone })}
       />
       <p
         style={{
@@ -17,7 +23,7 @@ const SingleItem = ({ item }) => {
       <button
         className='btn remove-btn'
         type='button'
-        onClick={() => console.log('delete task')}
+        onClick={() => deleteTask(item.id)}
       >
         delete
       </button>
