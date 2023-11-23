@@ -7,16 +7,19 @@ import {
   Error,
   Newsletter,
   Cocktail,
+  SinglePageError
 } from './pages';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <HomeLayout />,
+    errorElement:<Error></Error>,
     children: [
       {
         index:true,
         loader:landingLoder,
+        errorElement:<SinglePageError></SinglePageError>,
         element: <Landing />,
       },
       {
