@@ -1,7 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { loader as landingLoder } from "./pages/Landing";
-import { loader as singleCocktailLoader } from './pages/Cocktail';
-import {action as newsletterAction } from './pages/NewsLetter';
+import { loader as singleCocktailLoader } from "./pages/Cocktail";
+import { action as newsletterAction } from "./pages/NewsLetter";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import {
   HomeLayout,
   About,
@@ -9,39 +11,47 @@ import {
   Error,
   Newsletter,
   Cocktail,
-  SinglePageError
-} from './pages/index';
+  SinglePageError,
+} from "./pages/index";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5,
+    },
+  },
+});
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <HomeLayout />,
-    errorElement:<Error></Error>,
+    errorElement: <Error></Error>,
     children: [
       {
-        index:true,
-        loader:landingLoder,
-        errorElement:<SinglePageError></SinglePageError>,
+        index: true,
+        loader: landingLoder,
+        errorElement: <SinglePageError></SinglePageError>,
         element: <Landing />,
       },
       {
-        path: 'cocktail',
+        path: "cocktail",
         element: <Cocktail />,
       },
       {
-        path:'cocktail/:id',
-        loader:singleCocktailLoader,
+        path: "cocktail/:id",
+        loader: singleCocktailLoader,
         element: <Cocktail />,
         errorElement: <SinglePageError />,
       },
       {
-        path: 'newsletter',
+        path: "newsletter",
         element: <Newsletter />,
-        action:newsletterAction,
+        action: newsletterAction,
         errorElement: <SinglePageError />,
       },
       {
-        path: 'about',
+        path: "about",
         element: <About />,
         errorElement: <SinglePageError />,
       },
@@ -49,8 +59,14 @@ const router = createBrowserRouter([
   },
 ]);
 
-
 const App = () => {
-  return <RouterProvider router={router}></RouterProvider>;
+  return (
+    <>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    </>
+  );
 };
 export default App;
