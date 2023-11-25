@@ -1,3 +1,4 @@
+import { useQuery } from "@tanstack/react-query";
 const singleCocktailUrl =
   "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
 import axios from "axios";
@@ -5,18 +6,28 @@ import { useLoaderData, Link,Navigate } from "react-router-dom";
 
 import Wrapper from "../assets/wrappers/CocktailPage";
 
-export const loader = async ({ params }) => {
-  const { id } = params;
-  const { data } = await axios.get(`${singleCocktailUrl}${id}`);
-  return { id, data };
+
+const singleCocktailQuery = (id) => {
+  return {
+    queryKey: ['cocktail', id],
+    queryFn: async () => {
+      const { data } = await axios.get(`${singleCocktailUrl}${id}`);
+      return data;
+    },
+  };
 };
 
+export const loader = (queryClient)=> async ({params})=>{
+  const { id } = params;
+  //just to check to make sure the data is present ,same in landing.jsx
+  await queryClient.ensureQueryData(singleCocktailQuery(id));
+  return { id };
+}
+
 export default () => {
-  const { id, data } = useLoaderData();
-  //additional check 
-  if(!data){
-    return <Navigate to = '/'></Navigate>;
-  }
+  const {id} = useLoaderData();
+  const {data} = useQuery(singleCocktailQuery(id));
+  if (!data) return <Navigate to='/' />;
   const singleDrink = data.drinks[0];
   const {
     strDrink: name,
