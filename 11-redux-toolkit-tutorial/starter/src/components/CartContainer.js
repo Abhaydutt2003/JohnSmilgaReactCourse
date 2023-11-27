@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {openModal} from '../features/modal/modalSlice';
 const CartContainer = () => {
   const { cartItems, total, amount } = useSelector((state) => state.cart);
-  console.log(cartItems);
+  //console.log(cartItems);
   const dispatch = useDispatch();
   if (amount < 1) {
     return (

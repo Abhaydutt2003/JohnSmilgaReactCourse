@@ -11,7 +11,7 @@ function App() {
   const {cartItems,isLoading } = useSelector((state)=>state.cart);
   const dispatch = useDispatch();
   useEffect(()=>{
-    dispatch(getCartItems());
+    dispatch(getCartItems('random'));
   },[]);
   useEffect(()=>{
     dispatch(calculateTotals());

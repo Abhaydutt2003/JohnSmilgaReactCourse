@@ -43,7 +43,7 @@ const CartItem = ({ id, img, title, price, amount }) => {
               dispatch(removeItem(id));
               return;
             }
-            dispatch(decrease({ id }));
+            dispatch(decrease(id));
           }}
         >
           <ChevronDown />
